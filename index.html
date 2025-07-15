@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citations Africaines Inspirantes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q40,5 60,20 T100,20 Q80,40 60,60 T20,60 Q5,40 20,20Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        h1 {
+            color: #fff;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            color: #f8f8f8;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .name-input {
+            margin: 20px auto;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .name-input input {
+            padding: 14px 20px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .name-input button {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(to right, #ff8c00, #ff4500);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .name-input button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .quote-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            margin-bottom: 30px;
+            position: relative;
+            transition: transform 0.3s ease;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .quote-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .quote-text {
+            font-size: 2rem;
+            line-height: 1.6;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .quote-text::before, .quote-text::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.2;
+        }
+        
+        .quote-text::before {
+            top: -30px;
+            left: -20px;
+        }
+        
+        .quote-text::after {
+            content: '"';
+            bottom: -60px;
+            right: -20px;
+        }
+        
+        .quote-author {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            font-weight: 600;
+            text-align: right;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .quote-author::before {
+            content: "— ";
+        }
+        
+        .special-message {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.8rem;
+            line-height: 1.6;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+            50% { transform: scale(1.02); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
+            100% { transform: scale(1); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .new-quote {
+            background: linear-gradient(to right, #ff8c00, #ff4500);
+            color: white;
+        }
+        
+        .copy-quote {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(200%);
+            transition: transform 0.4s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .africa-map {
+            margin-top: 40px;
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .africa-map img {
+            width: 100%;
+            opacity: 0.2;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .togo-flag {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        
+        footer {
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .quote-text { font-size: 1.6rem; }
+            .btn { padding: 14px 30px; font-size: 1.1rem; }
+            .special-message { font-size: 1.5rem; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .quote-text { font-size: 1.4rem; }
+            .quote-container { padding: 30px 20px; }
+            .buttons { flex-direction: column; }
+            .btn { width: 100%; }
+            .special-message { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Citations Africaines</h1>
+            <p class="subtitle">Sagesse, inspiration et traditions du continent</p>
+            
+            <div class="name-input">
+                <input type="text" id="user-name" placeholder="Entrez votre nom pour commencer">
+                <button id="start-btn">Commencer</button>
+            </div>
+        </header>
+        
+        <main id="main-content" style="display: none;">
+            <div class="quote-container">
+                <p id="quote-text" class="quote-text">Cliquez sur le bouton pour découvrir une citation inspirante</p>
+                <p id="quote-author" class="quote-author"></p>
+            </div>
+            
+            <div id="special-message-container"></div>
+            
+            <div class="buttons">
+                <button id="new-quote" class="btn new-quote">
+                    <i class="fas fa-sync-alt"></i> Nouvelle citation
+                </button>
+                <button id="copy-quote" class="btn copy-quote">
+                    <i class="fas fa-copy"></i> Copier la citation
+                </button>
+            </div>
+            
+            <div class="africa-map">
+                <div class="togo-flag">🇹🇬</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cpath d='M100,50 Q250,30 400,80 Q550,30 700,50 L750,400 Q600,420 400,400 Q200,420 50,400 Z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E" alt="Carte de l'Afrique">
+            </div>
+        </main>
+        
+        <footer>
+            <p>La sagesse africaine - Un trésor pour le monde</p>
+        </footer>
+    </div>
+    
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i> <span>Citation copiée dans le presse-papiers !</span>
+    </div>
+    
+    <script>
+        // Tableau de citations africaines et togolaises
+        const citations = [
+            {
+                texte: "Seul on va plus vite, ensemble on va plus loin.",
+                auteur: "Proverbe africain"
+            },
+            {
+                texte: "La patience est un arbre dont la racine est amère, et dont les fruits sont très doux.",
+                auteur: "Proverbe africain"
+            },
+            {
+                texte: "La main qui donne est toujours au-dessus de celle qui reçoit.",
+                auteur: "Proverbe togolais"
+            },
+            {
+                texte: "Quand tu ne sais pas où tu vas, souviens-toi d'où tu viens.",
+                auteur: "Proverbe africain"
+            },
+            {
+                texte: "Un vieillard assis voit plus loin qu'un jeune homme debout.",
+                auteur: "Proverbe togolais"
+            },
+            {
+                texte: "Le pardon est la clé de la réconciliation.",
+                auteur: "Proverbe togolais"
+            },
+            {
+                texte: "Celui qui plante un arbre n'aura pas vécu inutilement.",
+                auteur: "Proverbe togolais"
+            },
+            {
+                texte: "La vérité est comme le soleil, elle finit toujours par percer les nuages.",
+                auteur: "Proverbe togolais"
+            },
+            {
+                texte: "L'enfant qui n'est pas éduqué est un oiseau aux ailes coupées.",
+                auteur: "Proverbe africain"
+            },
+            {
+                texte: "La parole est comme un œuf : une fois lancée, elle ne peut être reprise.",
+                auteur: "Proverbe africain"
+            },
+            {
+                texte: "On reconnaît la force du vent quand il souffle contre le feu.",
+                auteur: "Proverbe africain"
+            },
+            {
+                texte: "L'éducation est un trésor.",
+                auteur: "Proverbe africain"
+            },
+            {
+                texte: "Quand les éléphants se battent, ce sont les fourmis qui meurent.",
+                auteur: "Proverbe africain"
+            },
+            {
+                texte: "La pierre lancée sur le chien ne fait pas mal au chat.",
+                auteur: "Proverbe togolais"
+            },
+            {
+                texte: "La mort n'efface pas les souvenirs, elle les rend plus précieux.",
+                auteur: "Proverbe africain"
+            }
+        ];
+
+        // Variables globales
+        let userName = "";
+        let clickCount = 0;
+        let specialMessageShown = false;
+        
+        // Éléments DOM
+        const quoteTextElement = document.getElementById('quote-text');
+        const quoteAuthorElement = document.getElementById('quote-author');
+        const newQuoteButton = document.getElementById('new-quote');
+        const copyQuoteButton = document.getElementById('copy-quote');
+        const notification = document.getElementById('notification');
+        const mainContent = document.getElementById('main-content');
+        const startButton = document.getElementById('start-btn');
+        const nameInput = document.getElementById('user-name');
+        const specialMessageContainer = document.getElementById('special-message-container');
+        
+        // Fonction pour démarrer l'application
+        function startApp() {
+            userName = nameInput.value.trim();
+            if (userName) {
+                mainContent.style.display = 'block';
+                document.querySelector('.name-input').style.display = 'none';
+                document.querySelector('header h1').textContent = Bienvenue, {userName};
+                document.querySelector('header .subtitle').textContent = "Découvrez la sagesse africaine";
+                afficherCitationAleatoire();
+            } else {
+                alert("Veuillez entrer votre nom pour continuer.");
+            }
+        }
+        
+        // Afficher une citation aléatoire
+        function afficherCitationAleatoire() {
+            clickCount++;
+            
+            // Vérifier si on doit afficher le message spécial pour Blessing
+            if (userName.toLowerCase() === "blessing" && clickCount === 6 && !specialMessageShown) {
+                specialMessageContainer.innerHTML = `
+                    <div class="special-message">
+                        <p>Je t'aime Blessing 🤍 et tu me manques beaucoup</p>
+                        <p>J'ai conditionné la page à ce que ces messages n'apparaissent uniquement si le nom rentré est Blessing</p>
+                    </div>
+                `;
+                specialMessageShown = true;
+            }
+            
+            // Afficher une citation normale
+            const indexAleatoire = Math.floor(Math.random() * citations.length);
+            const citation = citations[indexAleatoire];
+            
+            quoteTextElement.textContent = citation.texte;
+            quoteAuthorElement.textContent = citation.auteur;
+        }
+        
+        // Copier la citation dans le presse-papiers
+        function copierCitation() {
+            const citationComplete = "${quoteTextElement.textContent}" - quoteAuthorElementtextContent;
+            
+            navigator.clipboard.writeText(citationComplete).then(() => {
+                // Afficher la notification
+                notification.classList.add('show');
+                
+                // Cacher la notification après 3 secondes
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            });
+        }
+        
+        // Événements
+        startButton.addEventListener('click', startApp);
+        nameInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                startApp();
+            }
+        });
+        newQuoteButton.addEventListener('click', afficherCitationAleatoire);
+        copyQuoteButton.addEventListener('click', copierCitation);
+    </script>
+</body>
+</html>
